@@ -54,6 +54,14 @@ namespace MianXiangProject.Web.Startup
                         PageNames.MXAttribute,
                         L("MXAttribute"),
                         url: "MXAttribute"
+                        )).AddItem(new MenuItemDefinition(
+                        PageNames.MXJob,
+                        L("MXJob"),
+                        url: "MXJob"
+                        )).AddItem(new MenuItemDefinition(
+                        PageNames.MXCompany,
+                        L("MXCompany"),
+                        url: "MXCompany"
                         ))
                 );
         }

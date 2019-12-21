@@ -9,6 +9,32 @@
             Default pass phrase for SimpleStringCipher decrypt/encrypt operations
             </summary>
         </member>
+        <member name="T:MianXiangProject.CommandShare.ConvertImgHelp">
+            <summary>
+            图片转换
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.CommandShare.ConvertImgHelp.Base64StringToImageBitmap(System.String)">
+            <summary>
+            Base64Img字符串转图片
+            </summary>
+            <param name="basestr">base64字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.CommandShare.ConvertImgHelp.ImgToBase64Stringone(System.String)">
+            <summary>
+            图片转base64img字符串
+            </summary>
+            <param name="Imagefilename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.CommandShare.ConvertImgHelp.Base64StringToImage(System.String)">
+            <summary>
+            base64编码的字符串转为图片
+            </summary>
+            <param name="strbase64"></param>
+            <returns></returns>
+        </member>
         <member name="P:MianXiangProject.CommandShare.Models.MXEntityDto.Sort">
             <summary>
             排序
@@ -220,6 +246,534 @@
             批量删除MXAttribute的方法
             </summary>
         </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.GetMXCompanysInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto.CompanyName">
+            <summary>
+            CompanyName
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto.CompanyType">
+            <summary>
+            CompanyType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyListDto.CompanyName">
+            <summary>
+            CompanyName
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyListDto.CompanyType">
+            <summary>
+            CompanyType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyListDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyMapper">
+            <summary>
+            配置MXCompany的AutoMapper
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService">
+             <summary>
+             MXCompany应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.GetPaged(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.GetMXCompanysInput)">
+             <summary>
+             获取MXCompany的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXCompanyListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.CreateOrUpdateMXCompanyInput)">
+            <summary>
+            添加或者修改MXCompany的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXCompany信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXCompany
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService">
+             <summary>
+             MXCompany应用层服务的接口实现方法  
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.#ctor(Abp.Domain.Repositories.IRepository{MianXiangProject.DataTables.MXCompany,System.Int32})">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.GetPaged(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.GetMXCompanysInput)">
+             <summary>
+             获取MXCompany的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXCompanyListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            获取编辑 MXCompany
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.CreateOrUpdateMXCompanyInput)">
+            <summary>
+            添加或者修改MXCompany的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.Create(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto)">
+            <summary>
+            新增MXCompany
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.Update(MianXiangProject.DataTableOption.MXCompanyOption.Dtos.MXCompanyEditDto)">
+            <summary>
+            编辑MXCompany
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXCompany信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXCompany的方法
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXJobOption.Dtos.CreateOrUpdateMXJobInput">
+            <summary>
+            创建与更新岗位
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.Dtos.GetMXJobsInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto.JobName">
+            <summary>
+            JobName
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto.JobType">
+            <summary>
+            JobType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobListDto.JobName">
+            <summary>
+            JobName
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobListDto.JobType">
+            <summary>
+            JobType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobListDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobMapper">
+            <summary>
+            配置MXJob的AutoMapper
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService">
+             <summary>
+             MXJob应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.GetPaged(MianXiangProject.DataTableOption.MXJobOption.Dtos.GetMXJobsInput)">
+             <summary>
+             获取MXJob的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXJobListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXJobOption.Dtos.CreateOrUpdateMXJobInput)">
+            <summary>
+            添加或者修改MXJob的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXJob信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXJob
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService">
+             <summary>
+             MXJob应用层服务的接口实现方法  
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.#ctor(Abp.Domain.Repositories.IRepository{MianXiangProject.DataTables.MXJob,System.Int32})">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.GetPaged(MianXiangProject.DataTableOption.MXJobOption.Dtos.GetMXJobsInput)">
+             <summary>
+             获取MXJob的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXJobListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            获取编辑 MXJob
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXJobOption.Dtos.CreateOrUpdateMXJobInput)">
+            <summary>
+            添加或者修改MXJob的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.Create(MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto)">
+            <summary>
+            新增MXJob
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.Update(MianXiangProject.DataTableOption.MXJobOption.Dtos.MXJobEditDto)">
+            <summary>
+            编辑MXJob
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXJob信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXJob的方法
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.GetMXQuestionsInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Question">
+            <summary>
+            Question
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.QuestionType">
+            <summary>
+            QuestionType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.QuestionCate">
+            <summary>
+            QuestionCate
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Answer">
+            <summary>
+            Answer
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.JobId">
+            <summary>
+            JobId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Knowledge1">
+            <summary>
+            Knowledge1
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Knowledge2">
+            <summary>
+            Knowledge2
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Knowledge3">
+            <summary>
+            Knowledge3
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.CompanyId">
+            <summary>
+            CompanyId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Options">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Question">
+            <summary>
+            Question
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.QuestionType">
+            <summary>
+            QuestionType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.QuestionCate">
+            <summary>
+            QuestionCate
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Answer">
+            <summary>
+            Answer
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.JobId">
+            <summary>
+            JobId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Knowledge1">
+            <summary>
+            Knowledge1
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Knowledge2">
+            <summary>
+            Knowledge2
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Knowledge3">
+            <summary>
+            Knowledge3
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.CompanyId">
+            <summary>
+            CompanyId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Options">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionMapper">
+            <summary>
+            配置MXQuestion的AutoMapper
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService">
+             <summary>
+             MXQuestion应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.GetPaged(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.GetMXQuestionsInput)">
+             <summary>
+             获取MXQuestion的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXQuestionListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInput)">
+            <summary>
+            添加或者修改MXQuestion的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXQuestion信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXQuestion
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService">
+             <summary>
+             MXQuestion应用层服务的接口实现方法  
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.#ctor(Abp.Domain.Repositories.IRepository{MianXiangProject.DataTables.MXQuestion,System.Int32})">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.GetPaged(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.GetMXQuestionsInput)">
+             <summary>
+             获取MXQuestion的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取MXQuestionListDto信息
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            获取编辑 MXQuestion
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.CreateOrUpdate(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInput)">
+            <summary>
+            添加或者修改MXQuestion的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.Create(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto)">
+            <summary>
+            新增MXQuestion
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.Update(MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionEditDto)">
+            <summary>
+            编辑MXQuestion
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除MXQuestion信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除MXQuestion的方法
+            </summary>
+        </member>
         <member name="T:MianXiangProject.DataTableOption.WxAppletUserOption.Dtos.CreateWXAppletUserDto">
             <summary>
             创建数据
@@ -284,6 +838,94 @@
             <summary>
             微信数据
             </summary>
+        </member>
+        <member name="T:MianXiangProject.FileManage.Dtos.Base64ImgModel">
+            <summary>
+            base64Img 图片上传
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.Base64ImgModel.base64Img">
+            <summary>
+            Base64图片码
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.Base64ImgModel.EncodingType">
+            <summary>
+            编码方式 默认"UTF8"
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.Base64ImgModel.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.FileManage.Dtos.CKEditorImageResult">
+            <summary>
+            CKEditor5 图片上传返回参数
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.CKEditorImageResult.uploaded">
+            <summary>
+            上传状态
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.CKEditorImageResult.url">
+            <summary>
+            返回存储的相对路径
+            </summary>
+        </member>
+        <member name="T:MianXiangProject.FileManage.FileManageAppService">
+            <summary>
+            文件上传处理
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.FileManage.FileManageAppService.GetAppString">
+            <summary>
+            获取站点网址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.FileManageAppService.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="File"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.FileManageAppService.UploadFiles(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            表单提交
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.FileManageAppService.UploadImgByBase64(MianXiangProject.FileManage.Dtos.Base64ImgModel)">
+            <summary>
+            添加base64图片数据接口
+            </summary>
+            <param name="base64"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传图片
+            </summary>
+            <param name="File"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadFiles(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            表单提交上传图片
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadImgByBase64(MianXiangProject.FileManage.Dtos.Base64ImgModel)">
+            <summary>
+            base64img字符串转图片存储
+            </summary>
+            <param name="base64"></param>
+            <returns></returns>
         </member>
         <member name="T:MianXiangProject.MianXiangProjectAppServiceBase">
             <summary>

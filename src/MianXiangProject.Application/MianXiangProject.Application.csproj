@@ -19,11 +19,16 @@
     <Compile Remove="DataTableOption\MXAttributeOption\Class1.cs" />
     <Compile Remove="DataTableOption\MXAttributeOption\Dtos\Class1.cs" />
     <Compile Remove="DataTableOption\MXAttributeOption\IMXAttributeService.cs" />
+    <Compile Remove="DataTableOption\MXCompanyOption\Dtos\Class1.cs" />
+    <Compile Remove="DataTableOption\MXJobOption\Dtos\Class1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MianXiangProject.Core\MianXiangProject.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
   </ItemGroup>
 </Project>

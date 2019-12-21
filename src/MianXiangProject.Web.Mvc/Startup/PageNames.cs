@@ -8,5 +8,7 @@
         public const string Users = "Users";
         public const string Roles = "Roles";
         public const string MXAttribute = "MXAttribute";
+        public const string MXJob = "MXJob";
+        public const string MXCompany = "MXCompany";
     }
 }

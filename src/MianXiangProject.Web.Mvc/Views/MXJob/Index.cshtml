@@ -1,0 +1,128 @@
+﻿@using MianXiangProject.Web.Startup;
+@using MianXiangProject.SharedCommand;
+@model MianXiangProject.Web.Models.DataTablesViewDtos.MXJobViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.MXJob;
+}
+@section scripts
+{
+    <environment names="Development">
+        <script src="~/view-resources/Views/MXJob/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/MXJob/Index.js" asp-append-version="true"></script>
+    </environment>
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @L("MXJob")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>@L("Refresh")</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>岗位名</th>
+
+                            <th>岗位类型</th>
+                            <th>@L("Description")</th>
+                            <th>@L("Sort")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var viewModel in Model.MXJobList)
+                        {
+                            <tr>
+                                <td>@viewModel.JobName</td>
+                                <td>@viewModel.JobType</td>
+                                <td>@viewModel.Description</td>
+                                <td>@viewModel.Sort</td>
+
+                                <td class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="waves-effect waves-block edit-MXJob" data-MXJob-id="@viewModel.Id" data-toggle="modal" data-target="#MXJobEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block delete-MXJob" data-MXJob-id="@viewModel.Id" data-MXJob-name="@viewModel.JobName"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#MXJobCreateModal">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="MXJobCreateModal" tabindex="-1" role="dialog" aria-labelledby="MXJobCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="MXJobCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>@L("Add")</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" name="JobName" id="JobName" required maxlength="100">
+                            <label class="form-label">岗位名</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            @*<input class="form-control" type="text" name="Description" multiple maxlength="200">*@
+                            <textarea id="JobType" name="JobType" class="validate form-control"></textarea>
+                            <label class="form-label">岗位类型</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" name="Description">
+                            <label class="form-label">@L("Description")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="number" name="Sort">
+                            <label class="form-label">@L("Sort")</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                        <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="MXJobEditModal" tabindex="-1" role="dialog" aria-labelledby="MXJobEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
