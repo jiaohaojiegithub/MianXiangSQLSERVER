@@ -1,0 +1,78 @@
+﻿@using MianXiangProject.Web.Models.Common.Modals
+@model MianXiangProject.Web.Models.MXAttributeViewDtos.EdtiMXAttributeViewModel
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit")))
+
+<div class="modal-body">
+    <form name="MXAttributeEditForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.MXAttributeInfo.Id" />
+        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+            <li role="presentation" class="active"><a href="#edit-MXAttribute-details" data-toggle="tab">@L("Details")</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane animated fadeIn active" id="edit-MXAttribute-details">
+
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="AttributeName" type="text" name="AttributeName" value="@Model.MXAttributeInfo.AttributeName" required maxlength="32" minlength="2" class="validate form-control">
+                                <label for="AttributeName" class="form-label">属性名</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="AttributeValue" type="text" name="AttributeValue" value="@Model.MXAttributeInfo.AttributeValue" required maxlength="32" minlength="2" class="validate form-control">
+                                <label for="AttributeValue" class="form-label">属性值</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="AttributeType" type="text" name="AttributeType" value="@Model.MXAttributeInfo.AttributeType" required maxlength="32" minlength="2" class="validate form-control">
+                                <label for="AttributeType" class="form-label">属性类型</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                @*<input id="Description" type="text" name="Description" value="@Model.MXAttributeInfo.Description" maxlength="32" minlength="2" multiple class="validate form-control">*@
+                                <textarea id="Description" name="Description" class="validate form-control">@Model.MXAttributeInfo.Description</textarea>
+                                <label for="Description" class="form-label">@L("Description")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="Sort" type="number" name="Sort" value="@Model.MXAttributeInfo.Sort" class="validate form-control">
+                                <label for="Sort" class="form-label">@L("Sort")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+<script src="~/view-resources/Views/MXAttribute/_EdtiMXAttributeModal.js" asp-append-version="true"></script>
