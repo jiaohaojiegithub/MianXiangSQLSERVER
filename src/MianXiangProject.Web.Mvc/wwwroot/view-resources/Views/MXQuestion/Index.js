@@ -43,7 +43,7 @@
             var value = $('#OptionsInput').val();
             OptionsHtml = '<div class="input-group">'
                 + '<div class="input-group-btn" style="width:40px;">'
-                + ' <input type="text" value="' + key+'" class="form-control">'
+                + ' <input type="text" value="' + key + '" class="form-control">'
                 + '</div>'
                 + '<div class="form-line">'
                 + '   <input type="text" name="OptionsItme" id="' + key + '" value="' + value + '"  class="validate form-control">'
@@ -88,7 +88,7 @@
                     ]
                 },
                 ckfinder: {     //设置上传路径
-                    uploadUrl: 'http://localhost:8081/api/services/app/FileManage/UploadFiles'
+                    uploadUrl: 'http://localhost:21021/api/services/app/FileManage/UploadFiles'
                     //后端处理上传逻辑返回json数据,包括uploaded(选项true/false)和url两个字段
                 }
             })
@@ -101,6 +101,31 @@
             .catch(error => {
                 console.error(error);
             });
+        //题目类型
+        $('#QuestionType').change(function () {
+            var QuestionTypeValue = $('#QuestionType option:selected').text();
+            switch (QuestionTypeValue) {
+                case '单选题':
+                case '多选题':
+                    $('#OptionsInput').parent().parent().parent().parent().parent().removeAttr('hidden');
+                    $('#OptionInfo').removeAttr('hidden');
+                    break;
+                case '简答题':
+                case '判断题':
+                case '填空题':
+                    $('#OptionsInput').parent().parent().parent().parent().parent().attr('hidden', 'hidden');
+                    $('#OptionInfo').attr('hidden', 'hidden');
+                    break;
+                default:
+                    break;
+            }
+        });
+        //定义标签属性
+        var _$tagsKnowledgeLables = $('#Tags');
+        _$tagsKnowledgeLables.tagsinput({
+            maxChars: 10,//每个标签最大字符数量10个
+            maxTags: 10//最多支持10个标签
+        });
         //删除方法
         $('.delete-MXQuestion').click(function () {
             var MXQuestionId = $(this).attr("data-MXQuestion-id");

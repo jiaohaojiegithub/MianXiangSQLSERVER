@@ -8,7 +8,8 @@
 @section styles{
     <environment names="Development">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.css" />
-        <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+        <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+       
     </environment>
     <environment names="Staging,Production">
 
@@ -17,8 +18,9 @@
 @section scripts
 {
     <environment names="Development">
-
+        <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.js"></script>
+        <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
         <script src="~/view-resources/Views/MXQuestion/Index.js" asp-append-version="true"></script>
     </environment>
 
@@ -166,19 +168,8 @@
                                 </div>
                             </div>
                             <div class="OptionInfo">
-                               
-                                <div class="input-group">
-                                    <div class="input-group-btn" style="width:40px;">
-                                        <input type="text" value="A" class="form-control">
-                                    </div>
-                                    <div class="form-line">
-                                        <input type="text" name="OptionsItme" id="A" value="vsdvsdvsdbds" class="validate form-control">
-                                    </div>
-                                    <div class="input-group-addon">
-                                        <a href="#" class="RemoveOption"><i class="material-icons">remove</i></a>
-                                        <!-- Buttons -->
-                                    </div>
-                                </div>
+                                <!-- 多选项 -->
+
                             </div>
                             <div class="row clearfix" style="margin-top:10px;">
                                 <div class="col-sm-12">
@@ -196,7 +187,8 @@
                                     <div class="form-group form-float">
                                         <label for="Answer" class="form-label">答案</label>
                                         <div class="form-line">
-                                            <input id="Answer" type="text" name="Answer" required maxlength="32" minlength="2" class="validate form-control">
+                                            @*<input id="Answer" type="text" name="Answer" required maxlength="32" minlength="2" class="validate form-control">*@
+                                            <textarea id="Answer" name="Answer" class="validate form-control" cols="2"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +198,8 @@
                                     <div class="form-group form-float">
                                         <label for="Tags" class="form-label">标签</label>
                                         <div class="form-line">
-                                            <input id="Tags" type="text" name="Tags" required maxlength="32" minlength="2" class="validate form-control">
+                                            @*<input id="Tags" type="text" name="Tags" required maxlength="32" minlength="2" class="validate form-control">*@
+                                            <input id="Tags" type="text" name="Tags" data-role="tagsinput" maxlength="100" minlength="1" multiple class="validate form-control">
                                         </div>
                                     </div>
                                 </div>
