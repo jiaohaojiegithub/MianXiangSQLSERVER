@@ -34,12 +34,15 @@ namespace MianXiangProject.DataTableOption.MXJobOption
         /// <param name="input"></param>
         /// <returns></returns>
         Task<PagedResultDto<MXJobListDto>> GetPaged(GetMXJobsInput input);
-
-
-		/// <summary>
-		/// 通过指定id获取MXJobListDto信息
-		/// </summary>
-		Task<MXJobListDto> GetById(EntityDto<int> input);
+        /// <summary>
+        /// 获取所有岗位信息
+        /// </summary>
+        /// <returns></returns>
+        Task<PagedResultDto<MXJobListDto>> GetAllAsync();
+        /// <summary>
+        /// 通过指定id获取MXJobListDto信息
+        /// </summary>
+        Task<MXJobListDto> GetById(EntityDto<int> input);
 
 
         /// <summary>

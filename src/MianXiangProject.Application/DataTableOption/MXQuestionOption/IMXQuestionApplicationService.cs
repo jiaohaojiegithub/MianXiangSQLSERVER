@@ -33,12 +33,15 @@ namespace MianXiangProject.DataTableOption.MXQuestionOption
         /// <param name="input"></param>
         /// <returns></returns>
         Task<PagedResultDto<MXQuestionListDto>> GetPaged(GetMXQuestionsInput input);
-
-
-		/// <summary>
-		/// 通过指定id获取MXQuestionListDto信息
-		/// </summary>
-		Task<MXQuestionListDto> GetById(EntityDto<int> input);
+        /// <summary>
+        /// 获取所有数据
+        /// </summary>
+        /// <returns></returns>
+        Task<PagedResultDto<MXQuestionListDto>> GetAllAsync();
+        /// <summary>
+        /// 通过指定id获取MXQuestionListDto信息
+        /// </summary>
+        Task<MXQuestionListDto> GetById(EntityDto<int> input);
 
 
         /// <summary>
@@ -56,7 +59,7 @@ namespace MianXiangProject.DataTableOption.MXQuestionOption
         /// <returns></returns>
         Task CreateOrUpdate(CreateOrUpdateMXQuestionInput input);
 
-
+       // Task CreateOrUpdateTow(CreateOrUpdateMXQuestionInputTow input);
         /// <summary>
         /// 删除MXQuestion信息的方法
         /// </summary>

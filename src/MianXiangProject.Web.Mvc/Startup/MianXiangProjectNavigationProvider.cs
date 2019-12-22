@@ -62,6 +62,10 @@ namespace MianXiangProject.Web.Startup
                         PageNames.MXCompany,
                         L("MXCompany"),
                         url: "MXCompany"
+                        )).AddItem(new MenuItemDefinition(
+                        PageNames.MXQuestion,
+                        L("MXQuestion"),
+                        url: "MXQuestion"
                         ))
                 );
         }

@@ -187,7 +187,26 @@ MXJobEditDto editDto;
 			// TODO:批量删除前的逻辑判断，是否允许删除
 			await _entityRepository.DeleteAsync(s => input.Contains(s.Id));
 		}
+		/// <summary>
+		/// 获取所有数据
+		/// </summary>
+		/// <returns></returns>
+		public async Task<PagedResultDto<MXJobListDto>> GetAllAsync()
+		{
+			var query = _entityRepository.GetAll();
+			// TODO:根据传入的参数添加过滤条件
 
+
+			var count = await query.CountAsync();
+
+			var entityList = await query
+					.ToListAsync();
+
+			var entityListDtos = ObjectMapper.Map<List<MXJobListDto>>(entityList);
+			//var entityListDtos =entityList.MapTo<List<MXJobListDto>>();
+
+			return new PagedResultDto<MXJobListDto>(count, entityListDtos);
+		}
 
 		/// <summary>
 		/// 导出MXJob为excel表,等待开发。
@@ -201,7 +220,7 @@ MXJobEditDto editDto;
 		//	return _userListExcelExporter.ExportToFile(userListDtos);
 		//}
 
-    }
+	}
 }
 
 

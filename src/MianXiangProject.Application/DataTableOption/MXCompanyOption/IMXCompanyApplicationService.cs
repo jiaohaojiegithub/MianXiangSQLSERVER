@@ -34,12 +34,15 @@ namespace MianXiangProject.DataTableOption.MXCompanyOption
         /// <param name="input"></param>
         /// <returns></returns>
         Task<PagedResultDto<MXCompanyListDto>> GetPaged(GetMXCompanysInput input);
-
-
-		/// <summary>
-		/// 通过指定id获取MXCompanyListDto信息
-		/// </summary>
-		Task<MXCompanyListDto> GetById(EntityDto<int> input);
+        /// <summary>
+        /// 获取全部数据
+        /// </summary>
+        /// <returns></returns>
+        Task<PagedResultDto<MXCompanyListDto>> GetAllAsync();
+        /// <summary>
+        /// 通过指定id获取MXCompanyListDto信息
+        /// </summary>
+        Task<MXCompanyListDto> GetById(EntityDto<int> input);
 
 
         /// <summary>

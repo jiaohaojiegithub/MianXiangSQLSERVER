@@ -188,7 +188,21 @@ MXQuestionEditDto editDto;
 			// TODO:批量删除前的逻辑判断，是否允许删除
 			await _entityRepository.DeleteAsync(s => input.Contains(s.Id));
 		}
+		/// <summary>
+		/// 获取所有数据
+		/// </summary>
+		/// <returns></returns>
+		public async Task<PagedResultDto<MXQuestionListDto>> GetAllAsync()
+		{
+			var query = _entityRepository.GetAll();
+			// TODO:根据传入的参数添加过滤条件
+			var count = await query.CountAsync();
+			var entityList = await query
+					.ToListAsync();
 
+			var entityListDtos = ObjectMapper.Map<List<MXQuestionListDto>>(entityList);
+			return new PagedResultDto<MXQuestionListDto>(count, entityListDtos);
+		}
 
 		/// <summary>
 		/// 导出MXQuestion为excel表,等待开发。
@@ -202,7 +216,7 @@ MXQuestionEditDto editDto;
 		//	return _userListExcelExporter.ExportToFile(userListDtos);
 		//}
 
-    }
+	}
 }
 
 

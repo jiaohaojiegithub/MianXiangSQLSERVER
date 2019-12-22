@@ -10,5 +10,6 @@
         public const string MXAttribute = "MXAttribute";
         public const string MXJob = "MXJob";
         public const string MXCompany = "MXCompany";
+        public const string MXQuestion ="MXQuestion";
     }
 }

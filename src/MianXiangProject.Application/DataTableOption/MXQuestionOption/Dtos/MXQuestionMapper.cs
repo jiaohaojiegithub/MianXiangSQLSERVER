@@ -25,6 +25,11 @@ namespace MianXiangProject.DataTableOption.MXQuestionOption.Dtos
             CreateMap<MXQuestion, MXQuestionEditDto>()
                   .ForMember(x => x.Options, o => o.MapFrom(input => JsonConvert.DeserializeObject<Dictionary<string, string>>(input.Options)));
 
+             CreateMap<MXQuestion, CreateOrUpdateMXQuestionInputTow>()
+               ;
+            CreateMap<CreateOrUpdateMXQuestionInputTow, MXQuestion>()
+                 ; 
+
         }
     }
 }

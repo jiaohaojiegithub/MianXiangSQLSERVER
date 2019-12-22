@@ -303,6 +303,12 @@
              <param name="input"></param>
              <returns></returns>
         </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.GetAllAsync">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.IMXCompanyAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
             <summary>
             通过指定id获取MXCompanyListDto信息
@@ -392,6 +398,12 @@
             批量删除MXCompany的方法
             </summary>
         </member>
+        <member name="M:MianXiangProject.DataTableOption.MXCompanyOption.MXCompanyAppService.GetAllAsync">
+            <summary>
+            获取全部数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MianXiangProject.DataTableOption.MXJobOption.Dtos.CreateOrUpdateMXJobInput">
             <summary>
             创建与更新岗位
@@ -458,6 +470,12 @@
             </summary>
              <param name="input"></param>
              <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.GetAllAsync">
+            <summary>
+            获取所有岗位信息
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:MianXiangProject.DataTableOption.MXJobOption.IMXJobAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
             <summary>
@@ -546,6 +564,77 @@
         <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
             <summary>
             批量删除MXJob的方法
+            </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXJobOption.MXJobAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Question">
+            <summary>
+            Question
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.QuestionType">
+            <summary>
+            QuestionType
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.QuestionCate">
+            <summary>
+            QuestionCate
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Answer">
+            <summary>
+            Answer
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.JobId">
+            <summary>
+            JobId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Knowledge1">
+            <summary>
+            Knowledge1
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Knowledge2">
+            <summary>
+            Knowledge2
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Knowledge3">
+            <summary>
+            Knowledge3
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.CompanyId">
+            <summary>
+            CompanyId
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Options">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.CreateOrUpdateMXQuestionInputTow.Tags">
+            <summary>
+            Tags
             </summary>
         </member>
         <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.GetMXQuestionsInput.Normalize">
@@ -685,6 +774,12 @@
              <param name="input"></param>
              <returns></returns>
         </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.IMXQuestionAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
             <summary>
             通过指定id获取MXQuestionListDto信息
@@ -773,6 +868,12 @@
             <summary>
             批量删除MXQuestion的方法
             </summary>
+        </member>
+        <member name="M:MianXiangProject.DataTableOption.MXQuestionOption.MXQuestionAppService.GetAllAsync">
+            <summary>
+            获取所有数据
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:MianXiangProject.DataTableOption.WxAppletUserOption.Dtos.CreateWXAppletUserDto">
             <summary>

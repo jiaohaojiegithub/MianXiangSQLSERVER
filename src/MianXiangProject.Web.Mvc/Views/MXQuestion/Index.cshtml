@@ -1,0 +1,293 @@
+﻿@using MianXiangProject.Web.Startup;
+@using MianXiangProject.SharedCommand;
+@using MianXiangProject.Web.Models.SharedDropDownList;
+@model MianXiangProject.Web.Models.DataTablesViewDtos.MXQuestionViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.MXQuestion;
+}
+@section styles{
+    <environment names="Development">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.css" />
+        <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+
+    </environment>
+}
+@section scripts
+{
+    <environment names="Development">
+
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.js"></script>
+        <script src="~/view-resources/Views/MXQuestion/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/view-resources/Views/MXQuestion/Index.js" asp-append-version="true"></script>
+    </environment>
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @L("MXQuestion")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>@L("Refresh")</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table id="MXQuestionTable" name="MXQuestionTable">
+                    <thead>
+                        <tr>
+                            <th>题目</th>
+
+                            <th>题目类型</th>
+                            <th>答案</th>
+                            <th>题目类别</th>
+                            <th>选项</th>
+                            <th>所属岗位</th>
+                            <th>所属公司</th>
+                            <th>@L("Sort")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var viewModel in Model.MXQuestionList)
+                        {
+                            <tr>
+                                <td>@viewModel.Question</td>
+                                <td>@viewModel.QuestionType.ToString()</td>
+                                <td>@viewModel.Answer</td>
+                                <td>@viewModel.QuestionCate</td>
+                                <td>@viewModel.Options</td>
+                                <td>@Model.GetTestQuestions_MXJob(viewModel.JobId)</td>
+                                <td>@Model.GetTestQuestions_MXCompany(viewModel.CompanyId)</td>
+                                <td>@viewModel.Sort</td>
+
+                                <td class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="waves-effect waves-block edit-MXQuestion" data-MXQuestion-id="@viewModel.Id" data-toggle="modal" data-target="#MXQuestionEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block delete-MXQuestion" data-MXQuestion-id="@viewModel.Id" data-MXQuestion-name="@viewModel.QuestionType.ToString()"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#MXQuestionCreateModal">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="MXQuestionCreateModal" tabindex="-1" role="dialog" aria-labelledby="MXQuestionCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="MXQuestionCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>@L("Add")</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                        <li role="presentation" class="active"><a href="#creat-MXQuestion-details" data-toggle="tab">详情</a></li>
+                        <li role="presentation"><a href="#creat-TestQuestions-Other" data-toggle="tab">关联</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane animated fadeIn active" id="creat-MXQuestion-details">
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="QuestionType" class="form-label">题目类型</label>
+                                        <div class="form-line">
+                                            @Html.DropDownList("QuestionType", EnumToList<QuestionsTypeEnum>.EnumToDropDownList(), new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="Question" class="form-label">题目</label>
+                                        <div class="form-line">
+                                            @*<input id="Question" type="text" name="Question" required maxlength="32" minlength="2" class="validate form-control">*@
+                                            <textarea id="Question" name="Question" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    @*<div class="form-group form-float">
+                                            <label for="Options" class="form-label">选项</label>
+                                            <div class="form-line">
+                                                <input id="Options" type="text" name="Options" required maxlength="32" minlength="2" class="validate form-control">
+                                            </div>
+                                        </div>*@
+
+                                    <div class="form-group form-float">
+                                        <label for="Options" class="form-label">选项</label>
+                                        <div class="input-group">
+                                            <div class="input-group-btn" style="width:100px;">
+                                                <select class="input-group-btn selectpicker" id="OptionKey" data-live-search="true">
+                                                    <option data-tokens="A" value="A">A </option>
+                                                    <option data-tokens="B" value="B">B </option>
+                                                    <option data-tokens="C" value="C">C </option>
+                                                </select>
+                                            </div><!-- /btn-group -->
+                                            <div class="form-line">
+                                                <input id="OptionsInput" type="text" name="OptionsInput" required maxlength="32" minlength="2" class="validate form-control">
+                                            </div>
+                                            <div class="input-group-addon">
+                                                @*<button id="AddOption" type="button" class="btn btn-primary "></button>*@
+                                                <a id="AddOption" href="#"><i class="material-icons">add</i></a>
+                                                <!-- Buttons -->
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /input-group -->
+                                </div>
+                            </div>
+                            <div class="OptionInfo">
+                               
+                                <div class="input-group">
+                                    <div class="input-group-btn" style="width:40px;">
+                                        <input type="text" value="A" class="form-control">
+                                    </div>
+                                    <div class="form-line">
+                                        <input type="text" name="OptionsItme" id="A" value="vsdvsdvsdbds" class="validate form-control">
+                                    </div>
+                                    <div class="input-group-addon">
+                                        <a href="#" class="RemoveOption"><i class="material-icons">remove</i></a>
+                                        <!-- Buttons -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="QuestionCate" class="form-label">题目类别</label>
+                                        <div class="form-line">
+                                            <input id="QuestionCate" type="text" name="QuestionCate" required maxlength="32" minlength="2" class="validate form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="Answer" class="form-label">答案</label>
+                                        <div class="form-line">
+                                            <input id="Answer" type="text" name="Answer" required maxlength="32" minlength="2" class="validate form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="Tags" class="form-label">标签</label>
+                                        <div class="form-line">
+                                            <input id="Tags" type="text" name="Tags" required maxlength="32" minlength="2" class="validate form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane animated fadeIn" id="creat-TestQuestions-Other">
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <label for="JobId" class="form-label ">岗位</label>
+                                    <div class="form-group form-float ">
+                                        <div class="form-line ">
+                                            <select class="selectpicker form-control" data-live-search="true" name="JobId" id="JobId">
+                                                @foreach (var jobDorp in Model.MXJobList)
+                                                {
+                                                    <option data-tokens="@jobDorp.Id" value="@jobDorp.Id">@jobDorp.JobName</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="CompanyId" class="form-label">公司</label>
+                                        <div class="form-line  ">
+                                            <select class="selectpicker form-control" data-live-search="true" name="CompanyId" id="CompanyId">
+                                                @foreach (var CompanyDorp in Model.MXCompanyList)
+                                                {
+                                                    <option data-tokens="@CompanyDorp.Id" value="@CompanyDorp.Id">@CompanyDorp.CompanyName</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="Sort" class="form-label">排序</label>
+                                        <div class="form-line">
+                                            <input id="Sort" type="number" name="Sort" multiple class="validate form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="margin-top:10px;">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-float">
+                                        <label for="State" class="form-label">@L("State")</label>
+                                        <div class="form-line">
+                                            @Html.DropDownList("State", EnumToList<DataState>.EnumToDropDownList(), new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                        <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="MXQuestionEditModal" tabindex="-1" role="dialog" aria-labelledby="MXQuestionEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

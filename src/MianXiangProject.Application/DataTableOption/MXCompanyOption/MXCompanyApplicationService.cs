@@ -186,7 +186,27 @@ MXCompanyEditDto editDto;
 			// TODO:批量删除前的逻辑判断，是否允许删除
 			await _entityRepository.DeleteAsync(s => input.Contains(s.Id));
 		}
+		/// <summary>
+		/// 获取全部数据
+		/// </summary>
+		/// <returns></returns>
+		public async Task<PagedResultDto<MXCompanyListDto>> GetAllAsync()
+		{
+			var query = _entityRepository.GetAll();
+			// TODO:根据传入的参数添加过滤条件
 
+
+			var count = await query.CountAsync();
+
+			var entityList = await query
+					
+					.ToListAsync();
+
+			var entityListDtos = ObjectMapper.Map<List<MXCompanyListDto>>(entityList);
+			//var entityListDtos =entityList.MapTo<List<MXCompanyListDto>>();
+
+			return new PagedResultDto<MXCompanyListDto>(count, entityListDtos);
+		}
 
 		/// <summary>
 		/// 导出MXCompany为excel表,等待开发。
@@ -200,7 +220,7 @@ MXCompanyEditDto editDto;
 		//	return _userListExcelExporter.ExportToFile(userListDtos);
 		//}
 
-    }
+	}
 }
 
 
