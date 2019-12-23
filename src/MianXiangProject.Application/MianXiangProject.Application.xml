@@ -712,14 +712,19 @@
             QuestionType
             </summary>
         </member>
+        <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.QuestionTypeVaule">
+            <summary>
+            题目类型
+            </summary>
+        </member>
         <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.QuestionCate">
             <summary>
-            QuestionCate
+            题目种类
             </summary>
         </member>
         <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.Answer">
             <summary>
-            Answer
+            答案
             </summary>
         </member>
         <member name="P:MianXiangProject.DataTableOption.MXQuestionOption.Dtos.MXQuestionListDto.JobId">
@@ -975,6 +980,21 @@
             返回存储的相对路径
             </summary>
         </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.CKEditorImageResult.fileName">
+            <summary>
+            CKEditor4返回参数 文件名
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.CKEditorImageResult.error">
+            <summary>
+            CKEditor4返回参数 错误
+            </summary>
+        </member>
+        <member name="P:MianXiangProject.FileManage.Dtos.Error.message">
+            <summary>
+            CKEditor4返回参数 消息
+            </summary>
+        </member>
         <member name="T:MianXiangProject.FileManage.FileManageAppService">
             <summary>
             文件上传处理
@@ -1007,6 +1027,13 @@
             <param name="base64"></param>
             <returns></returns>
         </member>
+        <member name="M:MianXiangProject.FileManage.FileManageAppService.UploadFilesByCK4(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            CKEditor4返回图片链接
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
         <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             上传图片
@@ -1017,6 +1044,13 @@
         <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadFiles(Microsoft.AspNetCore.Http.IFormCollection)">
             <summary>
             表单提交上传图片
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MianXiangProject.FileManage.IFileManageAppService.UploadFilesByCK4(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            CKEditor4返回图片链接
             </summary>
             <param name="Request"></param>
             <returns></returns>

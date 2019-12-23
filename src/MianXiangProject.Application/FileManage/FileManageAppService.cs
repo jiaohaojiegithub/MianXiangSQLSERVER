@@ -20,6 +20,9 @@ namespace MianXiangProject.FileManage
     public class FileManageAppService : ApplicationService, IFileManageAppService
     {
         private readonly IConfiguration _configuration;
+
+
+
         public FileManageAppService(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -98,7 +101,10 @@ namespace MianXiangProject.FileManage
                 var rError = new CKEditorImageResult
                 {
                     uploaded = false,
-                    url = string.Empty
+                    url = string.Empty,
+                    error=new Error { 
+                    message="未获取到文件数据"
+                    }
                 };
                 return rError;
             }
@@ -111,6 +117,7 @@ namespace MianXiangProject.FileManage
             var previewPath = $"{GetAppString()}/upload/{DateTime.Now.Year.ToString()}/{DateTime.Now.Month.ToString()}/{DateTime.Now.Day.ToString()}/" + fileName;
 
             bool result = true;
+            string errormessage = string.Empty;
             try
             {
                 if (!Directory.Exists(saveDir))
@@ -126,11 +133,16 @@ namespace MianXiangProject.FileManage
             catch (Exception ex)
             {
                 result = false;
+                errormessage = ex.Message;
             }
             var rUpload = new CKEditorImageResult
             {
                 uploaded = result,
-                url = result ? previewPath : string.Empty
+                url = result ? previewPath : string.Empty,
+                 error = new Error
+                 {
+                     message = errormessage
+                 }
             };
             return rUpload;
         }
@@ -227,6 +239,47 @@ namespace MianXiangProject.FileManage
                 };
                
             }
+        }
+        /// <summary>
+        /// CKEditor4返回图片链接
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns></returns>
+        [DontWrapResult, HttpPost]
+        public string UploadFilesByCK4(IFormCollection Request)
+        {
+            var files = Request.Files;
+            if (files == null)
+            {              
+                return string.Empty;
+            }
+            var formFile = files[0];
+            var upFileName = formFile.FileName;
+            //大小，格式校验....
+            var fileName = Guid.NewGuid() + Path.GetExtension(upFileName);
+            var saveDir = $@".\wwwroot\upload\{DateTime.Now.Year.ToString()}\{DateTime.Now.Month.ToString()}\{DateTime.Now.Day.ToString()}\";
+            var savePath = saveDir + fileName;
+            var previewPath = $"{GetAppString()}/upload/{DateTime.Now.Year.ToString()}/{DateTime.Now.Month.ToString()}/{DateTime.Now.Day.ToString()}/" + fileName;
+
+            bool result = true;
+            try
+            {
+                if (!Directory.Exists(saveDir))
+                {
+                    Directory.CreateDirectory(saveDir);
+                }
+                using (FileStream fs = System.IO.File.Create(savePath))
+                {
+                    formFile.CopyTo(fs);
+                    fs.Flush();
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+          
+            return result ? previewPath : string.Empty;
         }
     }
 }

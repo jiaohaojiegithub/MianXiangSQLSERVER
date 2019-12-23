@@ -15,6 +15,7 @@ namespace MianXiangProject.FileManage
         /// <param name="File"></param>
         /// <returns></returns>
         CKEditorImageResult UploadFile(IFormFile File);
+
         /// <summary>
         /// 表单提交上传图片
         /// </summary>
@@ -22,6 +23,12 @@ namespace MianXiangProject.FileManage
         /// <returns></returns>
 
         CKEditorImageResult UploadFiles(IFormCollection Request);
+        /// <summary>
+        /// CKEditor4返回图片链接
+        /// </summary>
+        /// <param name="Request"></param>
+        /// <returns></returns>
+        string UploadFilesByCK4 (IFormCollection Request);
         /// <summary>
         /// base64img字符串转图片存储
         /// </summary>

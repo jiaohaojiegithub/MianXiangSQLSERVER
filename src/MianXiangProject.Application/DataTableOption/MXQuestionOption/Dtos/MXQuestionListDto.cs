@@ -27,18 +27,22 @@ namespace  MianXiangProject.DataTableOption.MXQuestionOption.Dtos
 		/// QuestionType
 		/// </summary>
 		public QuestionsTypeEnum QuestionType { get; set; }
-
-
+		/// <summary>
+		/// 题目类型
+		/// </summary>
+		public string QuestionTypeVaule { get {
+				return QuestionType.ToString();
+			} }
 
 		/// <summary>
-		/// QuestionCate
+		/// 题目种类
 		/// </summary>
 		public string QuestionCate { get; set; }
 
 
 
 		/// <summary>
-		/// Answer
+		/// 答案
 		/// </summary>
 		[MinLength(1, ErrorMessage="Answer小于最小长度")]
 		public string Answer { get; set; }

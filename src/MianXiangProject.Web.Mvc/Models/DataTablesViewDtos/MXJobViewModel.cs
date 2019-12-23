@@ -8,6 +8,6 @@ namespace MianXiangProject.Web.Models.DataTablesViewDtos
 {
     public class MXJobViewModel
     {
-        public IReadOnlyList<MXJobListDto> MXJobList { get; internal set; }
+        public IReadOnlyList<MXJobListDto> MXJobList { get;  set; }
     }
 }

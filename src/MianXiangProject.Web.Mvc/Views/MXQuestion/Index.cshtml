@@ -7,9 +7,10 @@
 }
 @section styles{
     <environment names="Development">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.css" />
+
+        <link href="~/lib/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" />
         <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
-       
+
     </environment>
     <environment names="Staging,Production">
 
@@ -18,8 +19,10 @@
 @section scripts
 {
     <environment names="Development">
-        <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.20/datatables.min.js"></script>
+        @*<script src="~/lib/ckeditor5-build-classic/ckeditor.js"></script>*@
+        <script src="~/lib/ckeditor/ckeditor.js"></script>
+        <script src="~/lib/ckeditor5-build-classic/translations/zh-cn.js"></script>
+        <script src="~/lib/datatables.net/js/jquery.dataTables.js"></script>
         <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
         <script src="~/view-resources/Views/MXQuestion/Index.js" asp-append-version="true"></script>
     </environment>
@@ -48,7 +51,7 @@
             </div>
             <div class="body table-responsive">
                 <table id="MXQuestionTable" name="MXQuestionTable">
-                    <thead>
+                    @*<thead>
                         <tr>
                             <th>题目</th>
 
@@ -86,7 +89,7 @@
                                 </td>
                             </tr>
                         }
-                    </tbody>
+                    </tbody>*@
                 </table>
 
                 <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#MXQuestionCreateModal">

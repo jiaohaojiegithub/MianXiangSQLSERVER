@@ -8,6 +8,6 @@ namespace MianXiangProject.Web.Models.DataTablesViewDtos
 {
     public class MXCompanyViewModel
     {
-        public IReadOnlyList<MXCompanyListDto> MXCompanyList { get; internal set; }
+        public IReadOnlyList<MXCompanyListDto> MXCompanyList { get;  set; }
     }
 }
