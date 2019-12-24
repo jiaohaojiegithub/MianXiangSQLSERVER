@@ -10,6 +10,14 @@
             return;
         }
 
+        
+
+        //
+     
+        $(document).on('click', '.RemoveOption', function () {
+            $(this).parent().parent().remove();
+        });
+
         var MXQuestion = {
             MXQuestion: _$form.serializeFormToObject()
         }; //serializeFormToObject is defined in main.js

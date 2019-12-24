@@ -96,7 +96,13 @@
     <text name="DefaultPasswordIs">默认密码为：{0}</text>
     <text name="DeleteTenantConfirm">确认删除该租户？</text>
     <text name="EditTenant">编辑租户</text>
-    
+
+    <text name="Sort">排序</text>
+    <text name="MXJob">岗位</text>
+    <text name="MXCompany">公司</text>
+    <text name="MXAttribute">属性</text>
+    <text name="MXQuestion">试题</text>
+    <text name="DataManage">数据管理</text>
     
   </texts>
 </localizationDictionary>

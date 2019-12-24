@@ -14,7 +14,16 @@
         $('#MXQuestionTable').DataTable({
             processing: true,
             serverSide: true,
-            autoWidth: false,
+            autoWidth: true,
+            scrollX: true,//水平滚动
+            //scrollCollapse: true,
+            //paging: false,
+            //锁定列个数
+            fixedColumns: {
+                leftColumns: 1,
+                rightColumns: 1,
+                heightMatch: 'auto'
+            },
             ajax: {
                 type: 'post',
                 url: '/MXQuestion/GetList',
@@ -38,17 +47,64 @@
                 }
             },
             columns: [
-                { data: 'id', title: 'Id' },
-                { data: 'question', title: '题目', orderable: false, width:"20%" },
-                { data: 'questionTypeVaule', title: '题目类型', orderable: false, width: "10%" },
-                { data: 'questionCate', title: '题目种类', width: "10%" },
-                { data: 'answer', title: '答案' },
-                { data: 'options', title: '选项' },
-                { data: 'tags', title: '标签' },              
                 {
-                    data: 'id',             
-                    title: "操作",
-                    className: 'dropdown'
+                    data: 'id',
+                    //title: '序号',
+                    className: 'Cellcenter',
+                    orderable: false
+                },
+                //{
+                //    data: 'question',
+                //    //title: '题目',
+                //    className: 'Cellcenter',
+                //    orderable: false
+                //},
+                {
+                    data: 'questionTypeVaule',
+                    //title: '题目类型',
+                    className: 'Cellcenter',
+                    orderable: false
+                },
+                {
+                    data: 'questionCate',
+                    //title: '题目种类',
+                    className: 'Cellcenter',
+                    orderable: false
+                },
+                {
+                    data: 'answer',
+                    //title: '答案',
+                    className: 'Cellcenter',
+                    orderable: false
+                },
+                {
+                    data: 'options',
+                    //title: '选项',
+                    className: 'Cellcenter',
+                    orderable: false
+                },
+                {
+                    data: 'tags',
+                    //title: '标签',
+                    className: 'Cellcenter',
+                    orderable: false
+                },              
+                {
+                    //data: function (e) {
+                    //    var Actionhtml =
+                    //        '   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >'
+                    //        + '     <i class="material-icons">menu</i>'
+                    //        + '   </a>'
+                    //        + '   <ul class="dropdown-menu pull-right text-right">'
+                    //        + '      <li><a href="#" class="waves-effect waves-block edit-MXQuestion" data-MXQuestion-id="' + e.id + '" data-toggle="modal" data-target="#MXQuestionEditModal"><i class="material-icons">edit</i>编辑</a></li>'
+                    //        + '    <li><a href="#" class="waves-effect waves-block delete-MXQuestion" data-MXQuestion-id="' + e.id + '" data-MXQuestion-name="' + e.QuestionTypeVaule + '"><i class="material-icons">delete_sweep</i>删除</a></li>'
+                    //        + '   </ul>';
+                    //    return Actionhtml;
+                    //},             
+                    //title: "操作",
+                    className: 'dropdown',
+                    orderable: false,
+                    width:'150px'
                 }
             ],
             columnDefs: [
@@ -61,13 +117,13 @@
                             '   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >'
                             + '     <i class="material-icons">menu</i>'
                             + '   </a>'
-                            + '   <ul class="dropdown-menu pull-right">'
+                            + '   <ul class="dropdown-menu pull-right text-right">'
                             + '      <li><a href="#" class="waves-effect waves-block edit-MXQuestion" data-MXQuestion-id="' + row.id + '" data-toggle="modal" data-target="#MXQuestionEditModal"><i class="material-icons">edit</i>编辑</a></li>'
                             + '    <li><a href="#" class="waves-effect waves-block delete-MXQuestion" data-MXQuestion-id="' + row.id + '" data-MXQuestion-name="' + row.QuestionTypeVaule + '"><i class="material-icons">delete_sweep</i>删除</a></li>'
                             + '   </ul>';
                         return Actionhtml;
                     },
-                    targets: 7
+                    targets: 6
                 }
             ],
 

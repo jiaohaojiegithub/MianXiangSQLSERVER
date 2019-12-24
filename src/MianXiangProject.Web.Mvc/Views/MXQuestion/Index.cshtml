@@ -8,9 +8,31 @@
 @section styles{
     <environment names="Development">
 
-        <link href="~/lib/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" />
+        @*<link href="~/lib/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" />
+        <link href="~/lib/datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css" rel="stylesheet" />*@
+        <link href="~/lib/DataTables/datatables.css" rel="stylesheet" />
         <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
-
+        <style>
+            .Cellcenter {
+                text-align:center;
+                /*min-width:100px;*/
+            }
+            .Cellleft {
+                text-align:left;
+                min-width:100px;
+            }
+              .Cellright {
+                text-align:right;
+                min-width:100px;
+            }
+            /*table th {
+                 text-align:center;
+                 width:auto;
+            }*/
+            /*th {
+                min-width:100px;
+            }*/
+        </style>
     </environment>
     <environment names="Staging,Production">
 
@@ -19,11 +41,13 @@
 @section scripts
 {
     <environment names="Development">
-        @*<script src="~/lib/ckeditor5-build-classic/ckeditor.js"></script>*@
         <script src="~/lib/ckeditor/ckeditor.js"></script>
-        <script src="~/lib/ckeditor5-build-classic/translations/zh-cn.js"></script>
-        <script src="~/lib/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/lib/ckeditor/lang/zh-cn.js"></script>
+        @*<script src="~/lib/datatables.net/js/jquery.dataTables.js"></script>*@
+        @*<script src="~/lib/datatables.net-fixedcolumns/js/dataTables.fixedColumns.js"></script>*@
+    <script src="~/lib/DataTables/datatables.js"></script>
         <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
         <script src="~/view-resources/Views/MXQuestion/Index.js" asp-append-version="true"></script>
     </environment>
 
@@ -51,21 +75,21 @@
             </div>
             <div class="body table-responsive">
                 <table id="MXQuestionTable" name="MXQuestionTable">
-                    @*<thead>
-                        <tr>
-                            <th>题目</th>
+                   <thead>
+                       <tr>
+                           <th>选择</th>
+                           @*<th width="200px">题目</th>*@
 
-                            <th>题目类型</th>
-                            <th>答案</th>
-                            <th>题目类别</th>
-                            <th>选项</th>
-                            <th>所属岗位</th>
-                            <th>所属公司</th>
-                            <th>@L("Sort")</th>
-                            <th>@L("Actions")</th>
-                        </tr>
+                           <th width="100px">题目类型</th>
+                           <th width="150px">题目种类</th>
+                           <th width="100px">答案</th>
+                           <th width="300px">选项</th>
+
+                           <th width="150px">标签</th>
+                           <th>操作</th>
+                       </tr>
                     </thead>
-                    <tbody>
+                    @* <tbody>
                         @foreach (var viewModel in Model.MXQuestionList)
                         {
                             <tr>
@@ -174,7 +198,9 @@
                                 <!-- 多选项 -->
 
                             </div>
-                            <div class="row clearfix" style="margin-top:10px;">
+                            <div class="row clearfix" style="
+        margin-top: 10px;
+">
                                 <div class="col-sm-12">
                                     <div class="form-group form-float">
                                         <label for="QuestionCate" class="form-label">题目类别</label>
@@ -213,7 +239,7 @@
                         </div>
 
                         <div role="tabpanel" class="tab-pane animated fadeIn" id="creat-TestQuestions-Other">
-                            <div class="row clearfix" style="margin-top:10px;">
+                            <div class="row clearfix" style="margin-top: 10px;">
                                 <div class="col-sm-12">
                                     <label for="JobId" class="form-label ">岗位</label>
                                     <div class="form-group form-float ">

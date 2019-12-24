@@ -9,7 +9,7 @@
     <form name="MXCompanyEditForm" role="form" novalidate class="form-validation">
         <input type="hidden" name="Id" value="@Model.MXCompanyInfo.Id" />
         <ul class="nav nav-tabs tab-nav-right" role="tablist">
-            <li role="presentation" class="active"><a href="#edit-MXCompany-details" data-toggle="tab">@L("Details")</a></li>
+            <li role="presentation" class="active"><a href="#edit-MXCompany-details" data-toggle="tab">详细</a></li>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane animated fadeIn active" id="edit-MXCompany-details">
@@ -41,7 +41,7 @@
                             <div class="form-line">
                                 @*<input id="Description" type="text" name="Description" value="@Model.MXCompanyInfo.Description" maxlength="32" minlength="2" multiple class="validate form-control">*@
                                 <textarea id="Description" name="Description" class="validate form-control">@Model.MXCompanyInfo.Description</textarea>
-                                <label for="Description" class="form-label">@L("Description")</label>
+                                <label for="Description" class="form-label">描述</label>
                             </div>
                         </div>
                     </div>
