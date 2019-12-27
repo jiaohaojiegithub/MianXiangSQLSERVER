@@ -17,6 +17,7 @@ using Abp.Domain.Repositories;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using MianXiangProject.DataTableOption.MXAttributeOption.Dtos;
+using MianXiangProject.CommandShare.Models;
 
 namespace MianXiangProject.DataTableOption.MXAttributeOption
 {
@@ -31,12 +32,22 @@ namespace MianXiangProject.DataTableOption.MXAttributeOption
         /// <param name="input"></param>
         /// <returns></returns>
         Task<PagedResultDto<MXAttributeListDto>> GetPaged(GetMXAttributesInput input);
-
-
-		/// <summary>
-		/// 通过指定id获取MXAttributeListDto信息
-		/// </summary>
-		Task<MXAttributeListDto> GetById(EntityDto<int> input);
+        /// <summary>
+        /// 组合条件查询
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<PagedResultDto<MXAttributeListDto>> GetPagedByFilter(PagedAllInputDto<MXAttributeFilter> input);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<PagedResultDto<MXAttributeListDto>> GetPagedByFilterJson(GetMXAttributesInput input);
+        /// <summary>
+        /// 通过指定id获取MXAttributeListDto信息
+        /// </summary>
+        Task<MXAttributeListDto> GetById(EntityDto<int> input);
 
 
         /// <summary>

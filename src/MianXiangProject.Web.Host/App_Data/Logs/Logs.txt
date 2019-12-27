@@ -3973,3 +3973,88 @@ INFO  2019-12-22 22:01:17,587 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics -
 INFO  2019-12-22 22:01:17,591 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 15.530000000000001ms 404 
 DEBUG 2019-12-22 22:01:22,294 [19   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
 DEBUG 2019-12-22 22:01:27,315 [11   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:56:39,539 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-12-27 21:56:39,608 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-12-27 21:56:39,623 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MianXiangProject.Web.Host.Startup.MianXiangProjectWebHostModule, MianXiangProject.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MianXiangProject.MianXiangProjectWebCoreModule, MianXiangProject.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MianXiangProject.MianXiangProjectApplicationModule, MianXiangProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MianXiangProject.MianXiangProjectCoreModule, MianXiangProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,625 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,626 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: MianXiangProject.EntityFrameworkCore.MianXiangProjectEntityFrameworkModule, MianXiangProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:39,630 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-12-27 21:56:39,752 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-12-27 21:56:39,752 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-12-27 21:56:39,752 [1    ] o.Configuration.LanguageManagementConfig - Converted MianXiangProject (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-12-27 21:56:39,752 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-12-27 21:56:40,241 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: MianXiangProject.EntityFrameworkCore.MianXiangProjectDbContext, MianXiangProject.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-12-27 21:56:41,753 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-12-27 21:56:41,805 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-12-27 21:56:41,864 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-12-27 21:56:41,917 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: MianXiangProject
+DEBUG 2019-12-27 21:56:41,942 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-12-27 21:56:42,182 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2019-12-27 21:56:42,314 [1    ] rization.Users.UserTokenExpirationWorker - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker
+DEBUG 2019-12-27 21:56:42,399 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-12-27 21:56:42,399 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-12-27 21:56:42,404 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Users.Dto.CreateUserDto
+DEBUG 2019-12-27 21:56:42,404 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Users.Dto.UserDto
+DEBUG 2019-12-27 21:56:42,404 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.Roles.Dto.PermissionDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.MultiTenancy.Dto.TenantDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.DataTableOption.WxAppletUserOption.Dtos.CreateWXAppletUserDto
+DEBUG 2019-12-27 21:56:42,405 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - MianXiangProject.DataTableOption.WxAppletUserOption.Dtos.WXAppletUserDto
+DEBUG 2019-12-27 21:56:44,960 [1    ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:56:45,041 [1    ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:56:45,261 [1    ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:56:45,389 [1    ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+INFO  2019-12-27 21:56:46,113 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\23515\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+INFO  2019-12-27 21:56:46,197 [19   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-12-27 21:56:46,511 [19   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'MianXiangProject.Web.Host.Controllers.HomeController.Index (MianXiangProject.Web.Host)'
+DEBUG 2019-12-27 21:56:47,926 [14   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+INFO  2019-12-27 21:56:50,237 [19   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MianXiangProject.Web.Host.Controllers.HomeController (MianXiangProject.Web.Host).
+INFO  2019-12-27 21:56:51,465 [19   ] c.Infrastructure.ControllerActionInvoker - Executing action method MianXiangProject.Web.Host.Controllers.HomeController.Index (MianXiangProject.Web.Host) - Validation state: Valid
+INFO  2019-12-27 21:56:51,471 [19   ] c.Infrastructure.ControllerActionInvoker - Executed action method MianXiangProject.Web.Host.Controllers.HomeController.Index (MianXiangProject.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.32370000000000004ms.
+INFO  2019-12-27 21:56:51,825 [13   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-12-27 21:56:51,834 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action MianXiangProject.Web.Host.Controllers.HomeController.Index (MianXiangProject.Web.Host) in 1590.2341000000001ms
+INFO  2019-12-27 21:56:51,840 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'MianXiangProject.Web.Host.Controllers.HomeController.Index (MianXiangProject.Web.Host)'
+INFO  2019-12-27 21:56:51,858 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-12-27 21:56:51,861 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 5661.906ms 302 
+INFO  2019-12-27 21:56:52,007 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 148.80450000000002ms 301 
+INFO  2019-12-27 21:56:52,012 [18   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-12-27 21:56:52,174 [18   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 163.17940000000002ms 200 text/html;charset=utf-8
+INFO  2019-12-27 21:56:52,198 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-12-27 21:56:52,202 [11   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-12-27 21:56:52,206 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-12-27 21:56:52,209 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-12-27 21:56:52,214 [17   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-12-27 21:56:52,265 [4    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'E:\我的资料\项目启动资料库\面享\MianXiangProject\5.0.0\aspnet-core\src\MianXiangProject.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2019-12-27 21:56:52,265 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-12-27 21:56:52,269 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 63.0148ms 200 application/javascript
+INFO  2019-12-27 21:56:52,273 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'E:\我的资料\项目启动资料库\面享\MianXiangProject\5.0.0\aspnet-core\src\MianXiangProject.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2019-12-27 21:56:52,276 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 71.0835ms 200 application/javascript
+INFO  2019-12-27 21:56:52,282 [14   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 82.5866ms 200 text/css
+INFO  2019-12-27 21:56:52,285 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-12-27 21:56:52,288 [7    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 83.6487ms 200 application/javascript
+INFO  2019-12-27 21:56:52,301 [4    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-12-27 21:56:52,304 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 102.4593ms 200 application/javascript
+INFO  2019-12-27 21:56:52,759 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2019-12-27 21:56:52,761 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2019-12-27 21:56:52,774 [12   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 20.0735ms 404 
+INFO  2019-12-27 21:56:52,778 [4    ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 20.093ms 404 
+DEBUG 2019-12-27 21:56:53,071 [20   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:56:58,121 [15   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:57:03,183 [19   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:57:08,243 [15   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:57:13,303 [16   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null
+DEBUG 2019-12-27 21:57:18,363 [18   ] HttpRequestEntityChangeSetReasonProvider - Unable to get URL from HttpRequest, fallback to null

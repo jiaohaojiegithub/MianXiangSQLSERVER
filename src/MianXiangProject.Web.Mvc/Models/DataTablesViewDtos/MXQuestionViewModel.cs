@@ -1,4 +1,5 @@
-﻿using MianXiangProject.DataTableOption.MXCompanyOption.Dtos;
+﻿using MianXiangProject.DataTableOption.MXAttributeOption.Dtos;
+using MianXiangProject.DataTableOption.MXCompanyOption.Dtos;
 using MianXiangProject.DataTableOption.MXJobOption.Dtos;
 using MianXiangProject.DataTableOption.MXQuestionOption.Dtos;
 using MianXiangProject.SharedCommand;
@@ -15,6 +16,7 @@ namespace MianXiangProject.Web.Models.DataTablesViewDtos
         public IReadOnlyList<MXQuestionListDto> MXQuestionList { get;  set; }
         public IReadOnlyList<MXCompanyListDto> MXCompanyList { get;  set; }
         public IReadOnlyList<MXJobListDto> MXJobList { get;  set; }
+        public IReadOnlyList<MXAttributeListDto> OptionItme { get;  set; }
 
         public Dictionary<string, string> GetOption(string Options)
         {

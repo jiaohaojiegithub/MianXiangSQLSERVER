@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Abp.Application.Services.Dto;
 using Abp.Web.Models;
 using MianXiangProject.Controllers;
+using MianXiangProject.DataTableOption.MXAttributeOption;
+using MianXiangProject.DataTableOption.MXAttributeOption.Dtos;
 using MianXiangProject.DataTableOption.MXCompanyOption;
 using MianXiangProject.DataTableOption.MXJobOption;
 using MianXiangProject.DataTableOption.MXQuestionOption;
@@ -13,6 +17,7 @@ using MianXiangProject.DataTableOption.MXQuestionOption.Dtos;
 using MianXiangProject.Web.Models.DataTablesViewDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace MianXiangProject.Web.Controllers
 {
@@ -22,14 +27,17 @@ namespace MianXiangProject.Web.Controllers
 
         private readonly IMXJobAppService _mXJobAppService;
         private readonly IMXCompanyAppService _MXCompanyAppService;
+        private readonly IMXAttributeAppService _mXAttributeAppService;
 
         public MXQuestionController(IMXQuestionAppService MXQuestionAppService,
               IMXJobAppService mXJobAppService,
-            IMXCompanyAppService MXCompanyAppService)
+            IMXCompanyAppService MXCompanyAppService,
+             IMXAttributeAppService mXAttributeAppService)
         {
             _MXQuestionAppService = MXQuestionAppService;
             _mXJobAppService = mXJobAppService;
             _MXCompanyAppService = MXCompanyAppService;
+            _mXAttributeAppService = mXAttributeAppService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,11 +48,29 @@ namespace MianXiangProject.Web.Controllers
             var modelMXCompany = (await _MXCompanyAppService
                .GetAllAsync()
                ).Items;
+            //var WhereJson = new Dictionary<string, string>();
+            //WhereJson.Add("AttributeType", "选择题");
+
+            //var where = new GetMXAttributesInput<string>
+            //{
+            //    FilterText = HttpUtility.UrlEncode(JsonConvert.SerializeObject(WhereJson),Encoding.UTF8),
+            //    Sorting = "Sort",
+            //    MaxResultCount = int.MaxValue
+            //};
+            //var where = new GetMXAttributesInput<string>()
+            //{
+            //    IsLike = false,
+            //    FilterText = "选择题",
+            //    Sorting = "Sort",
+            //    MaxResultCount = int.MaxValue
+            //};
+            var OptionItme = (await _mXAttributeAppService.GetPaged(new GetMXAttributesInput("选择题"))).Items;
             var viewModel = new MXQuestionViewModel
             {
                 MXQuestionList = modelDto,
                 MXCompanyList = modelMXCompany,
-                MXJobList = modeMXJob
+                MXJobList = modeMXJob,
+                OptionItme= OptionItme
             };
 
 

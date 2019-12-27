@@ -27,8 +27,8 @@ CKEDITOR.editorConfig = function (config) {
     config.removeButtons = 'Templates,Print,Find,Replace,SelectAll,Scayt,Checkbox,Form,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,Blockquote,BidiLtr,BidiRtl,Flash,PageBreak,Iframe,About,ShowBlocks,Smiley,SpecialChar,HorizontalRule,CopyFormatting,RemoveFormat';
 
     //上传图片窗口用到的接口
-    config.filebrowserImageUploadUrl = "http://localhost:21021/api/services/app/FileManage/UploadFiles";
-    config.filebrowserUploadUrl = "http://localhost:21021/api/services/app/FileManage/UploadFiles";
+    config.filebrowserImageUploadUrl = "http://122.51.177.94:8080/api/services/app/FileManage/UploadFiles";
+    config.filebrowserUploadUrl = "http://122.51.177.94:8080/services/app/FileManage/UploadFiles";
 
     // 使上传图片弹窗出现对应的“上传”tab标签
     config.removeDialogTabs = 'image:advanced;link:advanced';

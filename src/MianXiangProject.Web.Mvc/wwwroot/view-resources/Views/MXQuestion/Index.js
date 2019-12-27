@@ -219,6 +219,7 @@
         //        console.error(error);
         //    });
         CKEDITOR.replace('Question');
+        CKEDITOR.replace('Answer');
         //题目类型
         $('#QuestionType').change(function () {
             var QuestionTypeValue = $('#QuestionType option:selected').text();
@@ -321,6 +322,7 @@
             }
             // MXQuestion.MXQuestion.Question = myEditor.getData();
             MXQuestion.MXQuestion.Question = CKEDITOR.instances.Question.getData();
+            MXQuestion.MXQuestion.Answer = CKEDITOR.instances.Answer.getData();
             abp.ui.setBusy(_$modal);
             _MXQuestionService.createOrUpdate(MXQuestion).done(function () {
                 _$modal.modal('hide');

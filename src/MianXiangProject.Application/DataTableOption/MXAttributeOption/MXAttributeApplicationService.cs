@@ -18,6 +18,10 @@ using Abp.Application.Services.Dto;
 using Abp.Linq.Extensions;
 using MianXiangProject.DataTables;
 using MianXiangProject.DataTableOption.MXAttributeOption.Dtos;
+using MianXiangProject.CommandShare.Models;
+using System.Web;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace MianXiangProject.DataTableOption.MXAttributeOption
 {
@@ -50,7 +54,7 @@ namespace MianXiangProject.DataTableOption.MXAttributeOption
 
 		    var query = _entityRepository.GetAll();
 			// TODO:根据传入的参数添加过滤条件
-            
+			query = query.WhereIf(!input.FilterText.IsNullOrEmpty(), x => x.AttributeType == input.FilterText);
 
 			var count = await query.CountAsync();
 
@@ -176,7 +180,96 @@ MXAttributeEditDto editDto;
 			// TODO:批量删除前的逻辑判断，是否允许删除
 			await _entityRepository.DeleteAsync(s => input.Contains(s.Id));
 		}
+		/// <summary>
+		/// 组合条件查询
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public async Task<PagedResultDto<MXAttributeListDto>> GetPagedByFilter(PagedAllInputDto<MXAttributeFilter> input)
+		{
+			var query = _entityRepository.GetAll();
+			// TODO:根据传入的参数添加过滤条件
+			if (input.FilterText.Id.HasValue)
+			{
+				query = query.Where(x => x.Id == input.FilterText.Id);
 
+			}
+			else
+			{
+				//Expression<Func<MXAttribute, bool>> where = itme => itme.State == input.FilterText.State;
+				if (input.IsLike)
+				{
+					query = query
+						.WhereIf(!input.FilterText.AttributeType.IsNullOrWhiteSpace(), itme => itme.AttributeType.Contains(input.FilterText.AttributeType))
+						.WhereIf(!input.FilterText.AttributeName.IsNullOrWhiteSpace(), itme => itme.AttributeName.Contains(input.FilterText.AttributeName))
+						.WhereIf(!input.FilterText.AttributeValue.IsNullOrWhiteSpace(), itme => itme.AttributeValue.Contains(input.FilterText.AttributeValue));
+				}
+				else
+				{
+					query = query
+							.WhereIf(!input.FilterText.AttributeType.IsNullOrWhiteSpace(), itme => itme.AttributeType == input.FilterText.AttributeType)
+							.WhereIf(!input.FilterText.AttributeName.IsNullOrWhiteSpace(), itme => itme.AttributeName == input.FilterText.AttributeName)
+							.WhereIf(!input.FilterText.AttributeValue.IsNullOrWhiteSpace(), itme => itme.AttributeValue == input.FilterText.AttributeValue);
+				}
+			}
+
+
+			var count = await query.CountAsync();
+
+			var entityList = await query
+					.OrderBy(input.Sorting).AsNoTracking()
+					.PageBy(input)
+					.ToListAsync();
+
+			var entityListDtos = ObjectMapper.Map<List<MXAttributeListDto>>(entityList);
+			//var entityListDtos =entityList.MapTo<List<MXAttributeListDto>>();
+
+			return new PagedResultDto<MXAttributeListDto>(count, entityListDtos);
+		}
+		/// <summary>
+		/// Json 字典查询
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public async Task<PagedResultDto<MXAttributeListDto>> GetPagedByFilterJson(GetMXAttributesInput input)
+		{
+			var query = _entityRepository.GetAll();
+		
+			input.FilterText = HttpUtility.UrlDecode(input.FilterText, Encoding.UTF8);
+			var WhereJson = input.FilterText.IsNullOrWhiteSpace() ? new Dictionary<string, string>() : JsonConvert.DeserializeObject<Dictionary<string, string>>(input.FilterText);
+			// TODO:根据传入的参数添加过滤条件
+
+			//Expression<Func<MXAttribute, bool>> where = itme => itme.State == input.FilterText.State;
+			if (input.IsLike)
+			{
+				var x = WhereJson.ContainsKey("AttributeType");
+				var xv = WhereJson.GetValueOrDefault("AttributeType");
+				query = query
+					.WhereIf(WhereJson.ContainsKey("AttributeType"), itme => itme.AttributeType.Contains(WhereJson.GetValueOrDefault("AttributeType")))
+					.WhereIf(WhereJson.ContainsKey("AttributeName"), itme => itme.AttributeName.Contains(WhereJson.GetValueOrDefault("AttributeName")))
+					.WhereIf(WhereJson.ContainsKey("AttributeValue"), itme => itme.AttributeValue.Contains(WhereJson.GetValueOrDefault("AttributeValue")));
+			}
+			else
+			{
+				query = query
+						.WhereIf(WhereJson.ContainsKey("AttributeType"), itme => itme.AttributeType == WhereJson.GetValueOrDefault("AttributeType"))
+						.WhereIf(WhereJson.ContainsKey("AttributeName"), itme => itme.AttributeName == WhereJson.GetValueOrDefault("AttributeName"))
+						.WhereIf(WhereJson.ContainsKey("AttributeValue"), itme => itme.AttributeValue == WhereJson.GetValueOrDefault("AttributeValue"));
+			}
+
+
+			var count = await query.CountAsync();
+
+			var entityList = await query
+					.OrderBy(input.Sorting).AsNoTracking()
+					.PageBy(input)
+					.ToListAsync();
+
+			var entityListDtos = ObjectMapper.Map<List<MXAttributeListDto>>(entityList);
+			//var entityListDtos =entityList.MapTo<List<MXAttributeListDto>>();
+
+			return new PagedResultDto<MXAttributeListDto>(count, entityListDtos);
+		}
 
 		/// <summary>
 		/// 导出MXAttribute为excel表,等待开发。
@@ -190,7 +283,7 @@ MXAttributeEditDto editDto;
 		//	return _userListExcelExporter.ExportToFile(userListDtos);
 		//}
 
-    }
+	}
 }
 
 

@@ -16,11 +16,7 @@ namespace MianXiangProject.CommandShare.Models
         /// Ìø¹ıÊıÄ¿
         /// </summary>
         [Range(0, int.MaxValue)]
-        public int SkipCount { get; set; }
-
-
-
-		 
+        public int SkipCount { get; set; } 
 		 
          
 

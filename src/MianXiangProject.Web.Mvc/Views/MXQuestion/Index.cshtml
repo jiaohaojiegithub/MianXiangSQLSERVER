@@ -176,9 +176,11 @@
                                         <div class="input-group">
                                             <div class="input-group-btn" style="width:100px;">
                                                 <select class="input-group-btn selectpicker" id="OptionKey" data-live-search="true">
-                                                    <option data-tokens="A" value="A">A </option>
-                                                    <option data-tokens="B" value="B">B </option>
-                                                    <option data-tokens="C" value="C">C </option>
+                                                
+                                                    @foreach (var Itme in Model.OptionItme)
+                                                    {
+                                                        <option data-tokens="@Itme.AttributeValue" value="@Itme.AttributeValue">@Itme.AttributeValue</option>
+                                                    }
                                                 </select>
                                             </div><!-- /btn-group -->
                                             <div class="form-line">
